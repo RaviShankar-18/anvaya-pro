@@ -1,0 +1,512 @@
+/* Styles.css - Complete global styles for Anvaya CRM */
+
+/* 1. Bootstrap Icons Import */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* 2. CSS Variables */
+:root {
+  --sidebar-width: 250px;
+  --navbar-height: 56px;
+  
+  /* Brand Colors */
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --info-color: #0dcaf0;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+/* 3. Global Overrides */
+body {
+  background-color: var(--light-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  padding-top: var(--navbar-height); /* Add padding for fixed navbar */
+}
+
+/* 4. Layout System */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: calc(100vh - var(--navbar-height));
+  transition: margin-left 0.3s ease;
+  background-color: var(--light-color);
+  padding: 0; /* Remove default padding, let pages control their own */
+}
+
+/* 5. Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--navbar-height));
+  background-color: var(--dark-color);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  z-index: 1040;
+  padding: 1.5rem 0;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 2rem;
+}
+
+.sidebar .nav-link.active {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.sidebar .nav-link i {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* 6. Mobile Responsive */
+@media (max-width: 991.98px) {
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.show {
+    transform: translateX(0);
+  }
+}
+
+/* 7. Card Enhancements */
+.card {
+  transition: transform 0.2s ease;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* 8. Table Enhancements */
+.table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* 9. Dashboard Specific Styles */
+.dashboard-container {
+  background-color: var(--light-color);
+  min-height: calc(100vh - var(--navbar-height));
+  padding-top: 2rem; /* Add extra top padding for dashboard */
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+  color: #212529;
+}
+
+.dashboard-card {
+  transition: all 0.3s ease;
+  border-radius: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.dashboard-card-indicator {
+  height: 4px;
+  width: 60px;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+.dashboard-value {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.dashboard-card .card-title {
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* 10. Form Enhancements */
+.form-control.shadow-sm,
+.form-select.shadow-sm {
+  border: 1px solid #dee2e6;
+  transition: all 0.2s ease;
+}
+
+.form-control.shadow-sm:focus,
+.form-select.shadow-sm:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* 11. Lead Detail & Edit Form Styles */
+.info-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.badge-tag {
+  background-color: #e9ecef !important;
+  color: #495057 !important;
+  border: 1px solid #dee2e6;
+}
+
+.tag-badge {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tag-badge:hover {
+  transform: translateY(-1px);
+}
+
+/* 12. Timeline Styles */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e9ecef;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -1.75rem;
+  top: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #e9ecef;
+}
+
+.timeline-content {
+  padding-left: 1rem;
+}
+
+/* 13. Interactive Elements */
+input[type="radio"]:checked + label .badge {
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.25);
+}
+
+input[type="checkbox"]:checked + label .badge {
+  transform: scale(1.05);
+}
+
+/* 14. Comments Section */
+.comments-section .card {
+  transition: all 0.3s ease;
+}
+
+.comments-section .card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 15. Utility Classes */
+.min-vh-100 {
+  min-height: 100vh !important;
+}
+
+/* 16. Compact Leads Page Styles */
+.badge-sm {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.table-sm .btn {
+  padding: 0.25rem 0.5rem;
+}
+
+/* 17. Responsive Adjustments */
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 2rem;
+  }
+  
+  .dashboard-value {
+    font-size: 2rem;
+  }
+  
+  .dashboard-container {
+    padding: 1rem !important;
+    padding-top: 2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .dashboard-title {
+    font-size: 1.75rem;
+  }
+  
+  .dashboard-value {
+    font-size: 1.75rem;
+  }
+  
+  .dashboard-card .card-title {
+    font-size: 0.8125rem;
+  }
+}
+
+
+/* 18. Login Page Specific Styles */
+.login-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  position: relative;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="20%" cy="20%" r="20%" fill="url(%23a)"/><circle cx="80%" cy="80%" r="25%" fill="url(%23a)"/></svg>');
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.login-container .card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.login-container .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.test-account-card {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.test-account-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.test-account-card .card-body {
+  transition: all 0.3s ease;
+}
+
+.test-account-card:hover .card-body {
+  background: rgba(248, 249, 250, 0.5);
+}
+
+.test-account-card:hover .bi-arrow-right-circle {
+  color: var(--primary-color) !important;
+  transform: translateX(5px);
+}
+
+.test-account-card .text-sm {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.test-account-card .text-sm strong {
+  color: #495057;
+}
+
+.position-relative .btn-link {
+  background: none !important;
+  padding: 0.375rem 0.75rem !important;
+  margin-right: 0.5rem;
+}
+
+.position-relative .btn-link:hover {
+  background: none !important;
+}
+
+.position-relative .btn-link i {
+  font-size: 1.1rem;
+}
+
+/* 19. Enhanced Form Controls for Login */
+.login-container .form-control-lg {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.login-container .form-control-lg:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+  transform: translateY(-1px);
+}
+
+.login-container .btn-lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.login-container .btn-lg:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.3);
+}
+
+.login-container .btn-lg:active {
+  transform: translateY(0);
+}
+
+.login-container .spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* 20. Responsive Adjustments for Login */
+@media (max-width: 576px) {
+  .login-container .card {
+    margin: 1rem;
+  }
+  
+  .login-container .card-body {
+    padding: 2rem !important;
+  }
+  
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .test-account-card .card-body {
+    padding: 0.75rem !important;
+  }
+  
+  .test-account-card .text-sm {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container .card-body {
+    padding: 3rem !important;
+  }
+}
+
+/* 21. Animation for Test Account Cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.test-account-card {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.test-account-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.test-account-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.test-account-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* 22. Hover Effects for Interactive Elements */
+.test-accounts-section .badge {
+  transition: all 0.3s ease;
+}
+
+.test-account-card:hover .badge {
+  transform: scale(1.05);
+}
+
+.login-container .form-label {
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.login-container hr {
+  border-color: rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
+}
+
+/* 23. Focus States for Accessibility */
+.test-account-card:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.login-container .btn-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}

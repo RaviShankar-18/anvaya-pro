@@ -7,7 +7,7 @@ Built with React 18, Vite, Bootstrap 5, and role-based authentication for compre
 
 ## Demo Link
 
-[Live Demo](https://anvaya-crm-frontend.vercel.app)  
+[Live Demo](https://anvaya-pro.vercel.app)  
 
 ---
 

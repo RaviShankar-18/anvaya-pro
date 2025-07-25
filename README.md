@@ -1,96 +1,118 @@
-# Anvaya CRM - Frontend
+# Anvaya CRM
 
-A modern, responsive CRM application built with React and Bootstrap for managing leads, sales agents, and tracking performance.
+A modern, responsive CRM application built with React and Bootstrap for managing leads, sales agents, and tracking performance.  
+Built with React 18, Vite, Bootstrap 5, and role-based authentication for comprehensive sales management.
 
-## 🚀 Features
+---
 
-- **Dashboard**: Real-time lead statistics and overview
-- **Lead Management**: Create, edit, and track leads through the sales pipeline
-- **Sales Agents**: Manage your sales team and track performance
-- **Reports**: Comprehensive analytics with charts and insights
-- **Role-Based Access**: Admin, Sales Manager, and Sales Agent roles
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+## Demo Link
 
-## 🛠 Tech Stack
+[Live Demo](https://anvaya-crm-frontend.vercel.app)  
 
-- **Frontend**: React 18, Vite, Bootstrap 5
-- **Styling**: Bootstrap CSS with custom styles
-- **Charts**: Chart.js / React Chart.js 2
-- **Icons**: Bootstrap Icons
-- **Routing**: React Router Dom
-- **HTTP Client**: Axios
+---
 
-## 📦 Installation & Setup
+## Login
 
-### Prerequisites
-- Node.js 16+
-- npm
+> **Admin Account**  
+> Username: `admin@anvaya.com`  
+> Password: `admin123`
 
-### Local Development
+> **Sales Manager Account**  
+> Username: `manager@anvaya.com`  
+> Password: `manager123`
 
-1. **Clone the repository**
-```bash
-git clone <repository-url>
+> **Sales Agent Account**  
+> Username: `agent@anvaya.com`  
+> Password: `agent123`
+
+---
+
+## Quick Start
+
+```
+git clone https://github.com/RaviShankar-18/anvaya-crm-frontend.git
 cd anvaya-crm-frontend
-```
-
-2. **Install dependencies**
-```bash
 npm install
-```
-
-3. **Environment Variables**
-Create a `.env` file in the root directory:
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_TOKEN_KEY=anvaya_auth_token
-```
-
-4. **Start development server**
-```bash
 npm run dev
 ```
 
-### Environment Configuration
+## Technologies
+- React 18
+- Vite
+- Bootstrap 5
+- Chart.js
+- React Router Dom
+- Axios
+- Bootstrap Icons
 
-For production deployment, set these environment variables:
-```env
-VITE_API_URL=https://your-backend-api.vercel.app/api
-VITE_TOKEN_KEY=anvaya_auth_token
+## Features
+**Dashboard & Analytics**
+- Real-time lead statistics and performance overview
+- Comprehensive analytics with interactive charts and insights
+- Visual reporting for sales tracking and team performance
+- Key metrics display for quick decision making
+
+**Lead Management System**
+- Create, edit, and track leads through complete sales pipeline
+- Lead status management with customizable pipeline stages
+- Advanced lead filtering and search capabilities
+- Lead assignment and distribution to sales agents
+
+**Sales Team Management**
+- Manage sales agents and track individual performance
+- Role-based access control (Admin, Sales Manager, Sales Agent)
+- Team performance monitoring and reporting
+- Agent workload distribution and management
+
+**User Experience**
+- Fully responsive design for desktop and mobile devices
+- Modern Bootstrap 5 interface with custom styling
+- Intuitive navigation and user-friendly workflows
+- Real-time updates and notifications
+
+## API Reference
+
+### **POST /api/auth/login**
+User authentication with role-based access  
+Sample Response:
+```json
+{ "token": "jwt_token", "user": { "id": "...", "role": "admin", "name": "..." } }
 ```
 
-### Deploy to Vercel
-
-1. Connect your GitHub repository to Vercel
-2. Set the environment variables in Vercel dashboard
-3. Deploy automatically on push to main branch
-
-## 📱 Application Structure
-
-```
-src/
-├── components/          # Reusable components
-│   ├── layout/         # Layout components (Header, Sidebar)
-│   ├── modals/         # Modal components
-│   └── forms/          # Form components
-├── pages/              # Page components
-├── context/            # React context providers
-├── utils/              # Utility functions
-└── Styles.css          # Global styles
+### **GET /api/leads**
+Get all leads with filtering options  
+Sample Response:
+```json
+[{ "_id": "...", "name": "...", "status": "qualified", "agent": "...", "value": 5000 }]
 ```
 
-## 🔐 Authentication
-
-The application supports three user roles:
-- **Admin**: Full access to all features
-- **Sales Manager**: Team management and lead oversight
-- **Sales Agent**: Personal lead management
-
-## 🌐 API Integration
-
-The frontend connects to the Anvaya CRM Backend API:
-- **Production**: `https://anvaya-crm-backend-coral.vercel.app/api`
-- **Development**: `http://localhost:5000/api`
-
-**Backend Repository**: [Anvaya CRM Backend](https://github.com/RaviShankar-18/anvaya-crm-backend)
+### **POST /api/leads**
+Create new lead  
+Sample Response:
+```json
+{ "_id": "...", "name": "...", "email": "...", "status": "new", "createdAt": "..." }
 ```
+
+### **GET /api/agents**
+Get all sales agents  
+Sample Response:
+```json
+[{ "_id": "...", "name": "...", "email": "...", "role": "sales_agent", "leadsCount": 15 }]
+```
+
+### **GET /api/reports/dashboard**
+Get dashboard statistics  
+Sample Response:
+```json
+{ "totalLeads": 150, "qualifiedLeads": 45, "totalRevenue": 250000, "activeAgents": 12 }
+```
+
+### **PUT /api/leads/:id**
+Update lead information  
+Sample Response:
+```json
+{ "_id": "...", "name": "...", "status": "qualified", "updatedAt": "..." }
+```
+
+## Contact
+For bugs or feature requests, please reach out to ravishankarkumar.work@gmail.com

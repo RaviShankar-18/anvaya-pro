@@ -46,16 +46,19 @@ npm run dev
 - Comprehensive analytics with interactive charts and insights
 - Visual reporting for sales tracking and team performance
 - Key metrics display for quick decision making
+
 **Lead Management System**
 - Create, edit, and track leads through complete sales pipeline
 - Lead status management with customizable pipeline stages
 - Advanced lead filtering and search capabilities
 - Lead assignment and distribution to sales agents
+
 **Sales Team Management**
 - Manage sales agents and track individual performance
 - Role-based access control (Admin, Sales Manager, Sales Agent)
 - Team performance monitoring and reporting
 - Agent workload distribution and management
+
 **User Experience**
 - Fully responsive design for desktop and mobile devices
 - Modern Bootstrap 5 interface with custom styling
